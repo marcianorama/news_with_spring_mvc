@@ -9,15 +9,15 @@
 			<property name="hibernate.connection.username">root</property> <property 
 			name="hibernate.connection.password">123456</property> <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property> 
 			<property name="show_sql">true</property> -->
-			
-		<!-- <mapping class="com.jaya.news.model.Ads" />
+
+		<mapping class="com.jaya.news.model.Ads" />
 		<mapping class="com.jaya.news.model.Category" />
 		<mapping class="com.jaya.news.model.Comments" />
 		<mapping class="com.jaya.news.model.Details" />
 		<mapping class="com.jaya.news.model.News" />
 		<mapping class="com.jaya.news.model.Pages" />
 		<mapping class="com.jaya.news.model.Settings" />
-		<mapping class="com.jaya.news.model.Users" /> -->
+		<mapping class="com.jaya.news.model.Users" />
 		<mapping class="com.jaya.news.model.News" />
 	</session-factory>
 </hibernate-configuration>

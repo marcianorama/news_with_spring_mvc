@@ -1,3 +1,4 @@
+<#import "/spring.ftl" as spring />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,20 +97,18 @@
 					<div class="dropdown-menu">
 						<div class="dropdown-inner">
 							<ul class="list-unstyled">
-								<?php $cats = $this->adminModel->getcat(); ?>
-					            <?php foreach($cats as $cat): ?>
-					            <li><a href="<?php echo base_url().'index.php/welcome/category/'.$cat->cat_id; ?>"><?php echo $cat->title; ?></a></li>
-					            <?php endforeach; ?>
-					            <?php $pages = $this->adminModel->getpages(); ?>
+					            <#list listCategory as lc>
+					            	<li><a href="<@spring.url '/category/${lc.catId!}'/>">${lc.title!}</a></li>
+					            </#list>
 							</ul>
 						</div> 
 					</div>
 				</li>
-				<?php $pages = $this->adminModel->getpages(); ?>
-		        <?php foreach($pages as $page): ?>
-		        <?php if($page->id==3){ ?>
-		        <li><a href="<?php echo base_url().'index.php/welcome/page/'.$page->id; ?>"><?php echo $page->pagetitle; ?></a></li>
-		        <?php } ?>
+		        <#list listPages as lp>
+		        <#if lp.id=3>
+		        	<li><a href="<@spring.url '/pages/${lp.id!}' />">${lp.pagetitle!}</a></li>
+		        </#if>
+		        </#list>
 		      <?php endforeach; ?>
 				<!-- <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Category <i class="fa fa-arrow-circle-o-down"></i></a>
 					<div class="dropdown-menu" style="margin-left: -203.625px;">

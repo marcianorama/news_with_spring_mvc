@@ -17,7 +17,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.jaya.news.model.Category;
 import com.jaya.news.model.News;
+import com.jaya.news.model.Pages;
 import com.jaya.news.service.NewsService;
 
 /**
@@ -41,10 +44,11 @@ public class TestController {
     public ModelAndView index(ModelAndView model) throws IOException {
 	try {
 	    List<News> listNewsLimit = newsService.getNewsByLimit(6);
-	    for (News news : listNewsLimit) {
-		System.err.println("image -> "+news.getImage());
-	    }
+	    List<Category> listCategory = newsService.getAllCategory();
+	    List<Pages> listPages = newsService.getAllPages();
 	    model.addObject("listNewsLimit", listNewsLimit);
+	    model.addObject("listCategory", listCategory);
+	    model.addObject("listPages", listPages);
 	    model.setViewName("index");
 
 	} catch (Exception e) {
