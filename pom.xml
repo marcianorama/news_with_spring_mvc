@@ -7,7 +7,7 @@
 	<packaging>war</packaging>
 
 	<properties>
-		<spring.version>3.1.1.RELEASE</spring.version>
+		<spring.version>3.2.10.RELEASE</spring.version>
 		<hibernate.version>3.6.3.Final</hibernate.version>
 		<slf4j.version>1.6.1</slf4j.version>
 		<log4j.version>1.2.12</log4j.version>
@@ -202,6 +202,12 @@
 			<groupId>org.freemarker</groupId>
 			<artifactId>freemarker</artifactId>
 			<version>2.3.18</version>
+		</dependency>
+		<!-- Hibernate Validator -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.2.0.Final</version>
 		</dependency>
 
 	</dependencies>

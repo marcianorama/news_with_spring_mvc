@@ -37,9 +37,7 @@
 	</context-param>
 
 	<listener>
-		<listener-class>
-			org.springframework.web.context.ContextLoaderListener
-		</listener-class>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
 	<error-page>
@@ -52,4 +50,11 @@
 		<location>/WEB-INF/pages/404.jsp</location>
 	</error-page>
 
+	<!-- <context-param>
+		<description>Location to store uploaded file</description>
+		<param-name>file-upload</param-name>
+		<param-value>
+         D:\apache-tomcat-7.0.57\webapps\News\
+     </param-value>
+	</context-param> -->
 </web-app>

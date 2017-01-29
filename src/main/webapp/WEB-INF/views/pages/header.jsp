@@ -50,9 +50,9 @@
 				</div>
 				<div class="col-md-6">
 					<ul class="list-inline top-link link">
-						<li><a href="<?php echo base_url(); ?>index.php/welcome"><i class="fa fa-home"></i> Home</a></li>
-						<li><a href="<?php echo base_url(); ?>index.php/welcome"><i class="fa fa-comments"></i> Contact</a></li>
-						<li><a href="<?php echo base_url(); ?>index.php/welcome"><i class="fa fa-question-circle"></i> FAQ</a></li>
+						<li><a href="<@spring.url ''/>"><i class="fa fa-home"></i> Home</a></li>
+						<li><a href="<@spring.url 'index.php/welcome'/>"><i class="fa fa-comments"></i> Contact</a></li>
+						<li><a href="<@spring.url 'index.php/welcome'/>"><i class="fa fa-question-circle"></i> FAQ</a></li>
 					</ul>
 				</div>
 			</div>
@@ -69,36 +69,14 @@
 		</div>
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="<?php echo base_url(); ?>index.php/welcome">Home</a></li>
-				<!-- <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <i class="fa fa-arrow-circle-o-down"></i></a>
-					<div class="dropdown-menu">
-						<div class="dropdown-inner">
-							<ul class="list-unstyled">
-								<li><a href="archive.html">Login</a></li>
-								<li><a href="archive.html">Register</a></li>
-							</ul>
-						</div>
-					</div>
-				</li> -->
-				<!-- <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Video <i class="fa fa-arrow-circle-o-down"></i></a>
-					<div class="dropdown-menu">
-						<div class="dropdown-inner">
-							<ul class="list-unstyled">
-								<li><a href="archive.html">Text 201</a></li>
-								<li><a href="archive.html">Text 202</a></li>
-								<li><a href="archive.html">Text 203</a></li>
-								<li><a href="archive.html">Text 204</a></li>
-								<li><a href="archive.html">Text 205</a></li>
-							</ul>
-						</div> 
-					</div>
-				</li> -->
+				<li><a href="<@spring.url ''/>">Home</a></li>
+				
 				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Category <i class="fa fa-arrow-circle-o-down"></i></a>
 					<div class="dropdown-menu">
 						<div class="dropdown-inner">
 							<ul class="list-unstyled">
 					            <#list listCategory as lc>
-					            	<li><a href="<@spring.url '/category/${lc.catId!}'/>">${lc.title!}</a></li>
+					            	<li><a href="<@spring.url '/category?catId=${lc.catId!}'/>">${lc.title!}</a></li>
 					            </#list>
 							</ul>
 						</div> 
@@ -106,7 +84,7 @@
 				</li>
 		        <#list listPages as lp>
 		        <#if lp.id=3>
-		        	<li><a href="<@spring.url '/pages/${lp.id!}' />">${lp.pagetitle!}</a></li>
+		        	<li><a href="<@spring.url '/pages?pageId=${lp.id!}' />">${lp.pagetitle!}</a></li>
 		        </#if>
 		        </#list>
 		      <?php endforeach; ?>

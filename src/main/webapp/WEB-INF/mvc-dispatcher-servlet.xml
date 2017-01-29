@@ -24,11 +24,11 @@
 
 	<!-- Register the Customer.properties -->
 	<!-- <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource" 
-		abstract="false"> <property name="basename" value="Customer" /> </bean> -->
+		abstract="false"> <property name="basename" value="message" /> </bean> -->
 
 	<bean id="freemarkerConfig"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-		<property name="templateLoaderPath" value="/WEB-INF/pages/" />
+		<property name="templateLoaderPath" value="/WEB-INF/views/" />
 	</bean>
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
@@ -39,7 +39,27 @@
 
 	<!-- <mvc:resources mapping="/assets/**" location="/assets/" /> -->
 	<mvc:resources mapping="/assets/**" location="/assets/" />
+	<mvc:resources mapping="/assets/uploads/**" location="D:\apache-tomcat-7.0.57\tmpFiles"/>
 
 	<mvc:annotation-driven />
 	<import resource="classpath:spring-ctx.xml" />
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+		<!-- setting maximum upload size -->
+		<property name="maxUploadSize" value="100000" />
+
+	</bean>
+
+
+
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/login/*" />
+			<mvc:mapping path="/admin/*" />
+			<bean class="com.jaya.news.interceptor.AuthenticationInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+
 </beans>

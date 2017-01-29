@@ -482,3 +482,13 @@ footer .footer-4 a{color: #999; border: 1px solid #999; padding: 1px 10px;line-h
 	background: rgba(0, 0, 0, .5);
 
 }
+
+.error {
+	background: #FBE6F2 none repeat scroll 0 0;
+	border: 1px solid #D893A1;
+	color: #333333;
+	margin: 5px 0 0;
+	padding: 5px;
+	font-size: 10px;
+	font-family: Lucida Grande,Verdana,Geneva,Sans-serif;
+}

@@ -6,6 +6,7 @@ package com.jaya.news.model;
 
 import java.io.Serializable;
 import java.util.Date;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,15 +21,16 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 /**
- *
+ * 
  * @author MATET
  */
 @Entity
 @Table(name = "comments")
 @XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Comments.findAll", query = "SELECT c FROM Comments c")})
+@NamedQueries({ @NamedQuery(name = "Comments.findAll", query = "SELECT c FROM Comments c") })
 public class Comments implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -41,10 +43,12 @@ public class Comments implements Serializable {
     private int newsId;
     @Basic(optional = false)
     @Column(name = "poster_name")
+    @NotEmpty(message = "Name is required!")
     private String posterName;
     @Basic(optional = false)
     @Lob
     @Column(name = "comment")
+    @NotEmpty(message = "Comment is required!")
     private String comment;
     @Basic(optional = false)
     @Column(name = "date")
@@ -55,80 +59,84 @@ public class Comments implements Serializable {
     }
 
     public Comments(Integer commntId) {
-        this.commntId = commntId;
+	this.commntId = commntId;
     }
 
-    public Comments(Integer commntId, int newsId, String posterName, String comment, Date date) {
-        this.commntId = commntId;
-        this.newsId = newsId;
-        this.posterName = posterName;
-        this.comment = comment;
-        this.date = date;
+    public Comments(Integer commntId, int newsId, String posterName,
+	    String comment, Date date) {
+	this.commntId = commntId;
+	this.newsId = newsId;
+	this.posterName = posterName;
+	this.comment = comment;
+	this.date = date;
     }
 
     public Integer getCommntId() {
-        return commntId;
+	return commntId;
     }
 
     public void setCommntId(Integer commntId) {
-        this.commntId = commntId;
+	this.commntId = commntId;
     }
 
     public int getNewsId() {
-        return newsId;
+	return newsId;
     }
 
     public void setNewsId(int newsId) {
-        this.newsId = newsId;
+	this.newsId = newsId;
     }
 
     public String getPosterName() {
-        return posterName;
+	return posterName;
     }
 
     public void setPosterName(String posterName) {
-        this.posterName = posterName;
+	this.posterName = posterName;
     }
 
     public String getComment() {
-        return comment;
+	return comment;
     }
 
     public void setComment(String comment) {
-        this.comment = comment;
+	this.comment = comment;
     }
 
     public Date getDate() {
-        return date;
+	return date;
     }
 
     public void setDate(Date date) {
-        this.date = date;
+	this.date = date;
     }
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (commntId != null ? commntId.hashCode() : 0);
-        return hash;
+	int hash = 0;
+	hash += (commntId != null ? commntId.hashCode() : 0);
+	return hash;
     }
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Comments)) {
-            return false;
-        }
-        Comments other = (Comments) object;
-        if ((this.commntId == null && other.commntId != null) || (this.commntId != null && !this.commntId.equals(other.commntId))) {
-            return false;
-        }
-        return true;
+	// TODO: Warning - this method won't work in the case the id fields are
+	// not set
+	if (!(object instanceof Comments)) {
+	    return false;
+	}
+	Comments other = (Comments) object;
+	if ((this.commntId == null && other.commntId != null)
+		|| (this.commntId != null && !this.commntId
+			.equals(other.commntId))) {
+	    return false;
+	}
+	return true;
     }
 
     @Override
     public String toString() {
-        return "com.sample.dto.Comments[ commntId=" + commntId + " ]";
+	return "com.sample.dto.Comments[ commntId=" + commntId + " ]";
     }
-    
+
 }
